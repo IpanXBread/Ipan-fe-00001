@@ -22,7 +22,7 @@ export default function searchbytheatre() {
                     Search your movies here!
                 </Text>
                 <Text fontSize="lg">
-                    buttonssss
+                    buttonsssss
                 </Text>
             </Box>
         </Flex>
