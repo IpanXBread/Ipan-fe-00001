@@ -1,24 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Grid, GridItem } from '@chakra-ui/react';
 import { useMenu } from '../logic/MenuContext';
 
 export default function ResultsRF() {
-    const { selectedMenuItem } = useMenu(); // Use the useMenu hook to access the selectedMenuItem value
+    const { selectedMenuItem } = useMenu();
 
-    // Define the content based on the selectedMenuItem value
     let content;
     switch (selectedMenuItem) {
         case 'Home':
             content = (
                 <>
-                    <GridItem colSpan={1} rowSpan={1}>
-                        <Box h="200px" bg="blue" />
+                    <GridItem colSpan={2} rowSpan={1}>
+                        <Box h="400px" mb="7" bg="blue" />
                     </GridItem>
                     <GridItem colSpan={1} rowSpan={1}>
-                        <Box h="200px" bg="blue" />
+                        <Box h="400px" mb="7" bg="blue" />
                     </GridItem>
                     <GridItem colSpan={1} rowSpan={1}>
-                        <Box h="200px" bg="blue" />
+                        <Box h="400px" mb="7" bg="blue" />
+                    </GridItem>
+                    <GridItem colSpan={1} rowSpan={1}>
+                        <Box h="400px" mb="7" bg="blue" />
+                    </GridItem>
+                    <GridItem colSpan={1} rowSpan={1}>
+                        <Box h="400px" mb="7" bg="blue" />
                     </GridItem>
                 </>
             );
@@ -26,14 +31,20 @@ export default function ResultsRF() {
         case 'Theatre':
             content = (
                 <>
-                    <GridItem colSpan={1} rowSpan={1}>
-                        <Box h="200px" bg="red" />
+                    <GridItem colSpan={2} rowSpan={1}>
+                        <Box h="400px" mb="7" bg="red" />
                     </GridItem>
                     <GridItem colSpan={1} rowSpan={1}>
-                        <Box h="200px" bg="red" />
+                        <Box h="400px" mb="7" bg="red" />
                     </GridItem>
                     <GridItem colSpan={1} rowSpan={1}>
-                        <Box h="200px" bg="red" />
+                        <Box h="400px" mb="7" bg="red" />
+                    </GridItem>
+                    <GridItem colSpan={1} rowSpan={1}>
+                        <Box h="400px" mb="7" bg="red" />
+                    </GridItem>
+                    <GridItem colSpan={1} rowSpan={1}>
+                        <Box h="400px" mb="7" bg="red" />
                     </GridItem>
                 </>
             );
@@ -41,14 +52,20 @@ export default function ResultsRF() {
         case 'Timeslot':
             content = (
                 <>
-                    <GridItem colSpan={1} rowSpan={1}>
-                        <Box h="200px" bg="yellow" />
+                    <GridItem colSpan={2} rowSpan={1}>
+                        <Box h="400px" mb="7" bg="yellow" />
                     </GridItem>
                     <GridItem colSpan={1} rowSpan={1}>
-                        <Box h="200px" bg="yellow" />
+                        <Box h="400px" mb="7" bg="yellow" />
                     </GridItem>
                     <GridItem colSpan={1} rowSpan={1}>
-                        <Box h="200px" bg="yellow" />
+                        <Box h="400px" mb="7" bg="yellow" />
+                    </GridItem>
+                    <GridItem colSpan={1} rowSpan={1}>
+                        <Box h="400px" mb="7" bg="yellow" />
+                    </GridItem>
+                    <GridItem colSpan={1} rowSpan={1}>
+                        <Box h="400px" mb="7" bg="yellow" />
                     </GridItem>
                 </>
             );
@@ -59,10 +76,12 @@ export default function ResultsRF() {
 
     return (
         <Grid
-            templateColumns="2fr 2fr 2fr" // 3 columns
-            gap={8} // Gap between grid items
+            templateColumns="2fr 2fr 2fr"
+            gap={8}
+            ml="6"
+            mr="6"
         >
-            {content} {/* Render the content based on the selectedMenuItem value */}
+            {content}
         </Grid>
     );
 }

@@ -5,15 +5,17 @@ export default function footerRF() {
     return (
         <>
             <Flex
-                as="div"
-                align="center"
-                justify="space-between"
-                p="4"
-                bg="gray.500"
-                color="white"
                 height="350px"
             >
-                footer
+                {/* Left container */}
+                <Box width="35%" backgroundColor="gray" height="100%">
+                    foot
+                </Box>
+
+                {/* Right container */}
+                <Box width="65%" backgroundColor="darkgray" height="100%">
+                    er
+                </Box>
             </Flex>
         </>
     );
