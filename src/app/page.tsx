@@ -1,6 +1,7 @@
 'use client'
-// Basic React
-import React, { createContext, useState } from 'react';
+// Basic
+import React, { createContext, useState, useEffect } from 'react';
+import axios from 'axios';
 
 // Chakra UI
 import { Link } from '@chakra-ui/next-js'
@@ -14,18 +15,31 @@ import ResultRF from './component/resultsRF';
 import { MenuProvider, useMenu } from './logic/MenuContext';
 import SearchContext from './logic/SearchContext';
 
+
 export default function MainPage() {
+
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://821f21ea-3d75-4b17-bac5-f8a0fc587ad2.mock.pstmn.io/genre?genre=comedy');
+        setData(response.data);
+        console.log("API: ", response);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <MenuProvider>
       <HeaderRF />
-
-      < SearchContext/>
+      <SearchContext />
 
       <ResultRF />
       <FooterRF />
     </MenuProvider>
   );
 }
-
-// gotta make it into function to make it able to read useMenu() context before reading the Main Page else, error
