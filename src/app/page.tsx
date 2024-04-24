@@ -18,20 +18,26 @@ import SearchContext from './logic/SearchContext';
 
 export default function MainPage() {
 
-  const [data, setData] = useState(null);
+  const [prayerTimes, setPrayerTimes] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('https://821f21ea-3d75-4b17-bac5-f8a0fc587ad2.mock.pstmn.io/genre?genre=comedy');
-        setData(response.data);
-        console.log("API: ", response);
-      } catch (error) {
+    fetch('https://waktu-solat-api.herokuapp.com/api/v1/prayer_times.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Fetched data:', data);
+        setPrayerTimes(data);
+      })
+      .catch(error => {
         console.error('Error fetching data:', error);
-      }
-    };
-    fetchData();
+      });
   }, []);
+
+  console.log('Current state of prayerTimes:', prayerTimes);
 
   return (
     <MenuProvider>
