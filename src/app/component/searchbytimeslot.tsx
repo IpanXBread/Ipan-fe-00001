@@ -6,10 +6,10 @@ export default function searchbytimeslot() {
         <Flex
             justify="center"
             align="center"
-            height="100vh"
+            height="80vh"
             bg="gray.900"
             flexDirection="row"
-            p="150px"
+            p="180px"
         >
             {/* Image on the left */}
             <Box width="30%" marginRight="2%">
@@ -17,12 +17,12 @@ export default function searchbytimeslot() {
             </Box>
 
             {/* Text in the center */}
-            <Box width="60%">
-                <Text fontSize="5xl" fontWeight="bold" marginBottom="4">
-                    Search your movies here!
+            <Box width="50%">
+                <Text fontSize="6xl" fontWeight="bold" marginBottom="5">
+                    Rockets based on country list!
                 </Text>
                 <Text fontSize="lg">
-                    buttonssss
+                    This page filters all rockets made by which country.
                 </Text>
             </Box>
         </Flex>

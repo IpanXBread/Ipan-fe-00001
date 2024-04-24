@@ -1,6 +1,6 @@
 'use client'
 // Basic
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
 // Chakra UI
@@ -15,13 +15,14 @@ import ResultRF from './component/resultsRF';
 import { MenuProvider, useMenu } from './logic/MenuContext';
 import SearchContext from './logic/SearchContext';
 
+const APIDataContext = createContext(null);
 
 export default function MainPage() {
 
-  const [prayerTimes, setPrayerTimes] = useState(null);
+  const [APIData, setAPIData] = useState(null);
 
   useEffect(() => {
-    fetch('https://waktu-solat-api.herokuapp.com/api/v1/prayer_times.json')
+    fetch('https://api.spacexdata.com/v4/rockets')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -30,22 +31,27 @@ export default function MainPage() {
       })
       .then(data => {
         console.log('Fetched data:', data);
-        setPrayerTimes(data);
+        setAPIData(data);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
       });
   }, []);
 
-  console.log('Current state of prayerTimes:', prayerTimes);
-
   return (
     <MenuProvider>
       <HeaderRF />
-      <SearchContext />
 
-      <ResultRF />
+      <APIDataContext.Provider value={APIData}>
+        <SearchContext />
+        <ResultRF />
+      </APIDataContext.Provider>
+
       <FooterRF />
     </MenuProvider>
   );
+}
+
+export function useAPIData() {
+  return useContext(APIDataContext);
 }
