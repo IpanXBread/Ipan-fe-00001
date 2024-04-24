@@ -96,8 +96,3 @@ export default function headerRF() {
         </>
     );
 };
-
-
-
-{/* <Heading fontFamily="times-new-roman">About</Heading>
-<ThemeSwitcher/> */}

@@ -12,7 +12,7 @@ import FooterRF from './component/footerRF';
 import ResultRF from './component/resultsRF';
 
 // logic
-import { MenuProvider, useMenu } from './logic/MenuContext';
+import { MenuProvider } from './logic/MenuContext';
 import SearchContext from './logic/SearchContext';
 
 const APIDataContext = createContext(null);
